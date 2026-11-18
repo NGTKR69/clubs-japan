@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Get EA Match Data
         run: |
-          curl --fail --show-error --silent \
+          curl --http1.1 --fail --show-error --silent \
             --max-time 30 \
             'https://proclubs.ea.com/api/fc/clubs/matches?platform=common-gen5&clubIds=26703&matchType=leagueMatch' \
             -o matches.json
