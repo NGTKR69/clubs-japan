@@ -1,0 +1,34 @@
+name: Update FC Clubs Data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get EA Match Data
+        run: |
+          curl --fail --show-error --silent \
+            --max-time 30 \
+            'https://proclubs.ea.com/api/fc/clubs/matches?platform=common-gen5&clubIds=26703&matchType=leagueMatch' \
+            -o matches.json
+
+          python3 - <<'PY'
+          import json
+          with open("matches.json") as f:
+              data = json.load(f)
+          if not isinstance(data, list) or not data:
+              raise SystemExit("No match data received")
+          print("Matches received:", len(data))
+          PY
+
+      - name: Save Match Data
+        uses: actions/upload-artifact@v4
+        with:
+          name: getout-matches
+          path: matches.json
