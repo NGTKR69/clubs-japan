@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CLUBS JAPAN</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+
+ margin:0;
+
+ background:#0b0f14;
+
+ color:white;
+
+ font-family:Arial,sans-serif;
+
+}
+
+header{
+
+ padding:24px;
+
+ background:#111820;
+
+ border-bottom:3px solid #b6ff00;
+
+}
+
+h1{
+
+ margin:0;
+
+ font-size:32px;
+
+ color:#b6ff00;
+
+ font-style:italic;
+
+}
+
+header p{
+
+ color:#a0a8b3;
+
+ font-size:12px;
+
+ letter-spacing:2px;
+
+}
+
+nav{
+
+ display:flex;
+
+ justify-content:space-around;
+
+ background:#18212b;
+
+ padding:16px 4px;
+
+ font-size:12px;
+
+}
+
+nav a{
+
+ color:white;
+
+ text-decoration:none;
+
+}
+
+main{
+
+ max-width:1000px;
+
+ margin:auto;
+
+ padding:20px 12px;
+
+}
+
+.hero{
+
+ padding:28px 20px;
+
+ background:linear-gradient(135deg,#253b13,#101820);
+
+ border:1px solid #394b2c;
+
+ border-radius:12px;
+
+}
+
+.hero h2{
+
+ font-size:28px;
+
+ margin:0 0 12px;
+
+}
+
+.green{color:#b6ff00}
+
+.hero p{
+
+ font-size:13px;
+
+ color:#d0d5dc;
+
+}
+
+.stats{
+
+ display:grid;
+
+ grid-template-columns:repeat(3,1fr);
+
+ gap:8px;
+
+ margin:20px 0;
+
+}
+
+.stat{
+
+ background:#151d27;
+
+ padding:18px 5px;
+
+ border-radius:8px;
+
+ text-align:center;
+
+}
+
+.stat strong{
+
+ display:block;
+
+ font-size:26px;
+
+ color:#b6ff00;
+
+}
+
+.stat span{
+
+ font-size:11px;
+
+ color:#a0a8b3;
+
+}
+
+h3{
+
+ border-left:4px solid #b6ff00;
+
+ padding-left:10px;
+
+}
+
+input{
+
+ width:100%;
+
+ padding:13px;
+
+ background:#151d27;
+
+ border:1px solid #39424d;
+
+ border-radius:8px;
+
+ color:white;
+
+ margin-bottom:14px;
+
+}
+
+table{
+
+ width:100%;
+
+ border-collapse:collapse;
+
+ background:#151d27;
+
+ font-size:12px;
+
+}
+
+th,td{
+
+ padding:14px 6px;
+
+ text-align:center;
+
+ border-bottom:1px solid #303946;
+
+}
+
+th{
+
+ background:#222d39;
+
+ color:#b6ff00;
+
+}
+
+.notice{
+
+ color:#9ca6b3;
+
+ font-size:12px;
+
+}
+
+footer{
+
+ padding:30px;
+
+ text-align:center;
+
+ color:#79828e;
+
+ font-size:11px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>CLUBS JAPAN</h1>
+
+<p>EA SPORTS FC 26 | PRO CLUBS</p>
+
+</header>
+
+<nav>
+
+<a href="#home">HOME</a>
+
+<a href="#ranking">RANKING</a>
+
+<a href="#clubs">CLUBS</a>
+
+<a href="#matches">MATCHES</a>
+
+</nav>
+
+<main id="home">
+
+<div class="hero">
+
+<h2>JAPAN CLUB<br><span class="green">RANKING</span></h2>
+
+<p>日本のFCクラブの頂点へ。</p>
+
+<p>国内クラブランキング・試合結果・選手成績</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat"><strong>--</strong><span>登録クラブ</span></div>
+
+<div class="stat"><strong>--</strong><span>総試合数</span></div>
+
+<div class="stat"><strong>--</strong><span>登録選手</span></div>
+
+</div>
+
+<section id="ranking">
+
+<h3>CLUB RANKING</h3>
+
+<input id="search" placeholder="クラブ名を検索">
+
+<p class="notice">登録クラブ一覧・ランキング準備中</p>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>順位</th>
+
+<th>クラブ名</th>
+
+<th>試合</th>
+
+<th>勝利</th>
+
+<th>勝率</th>
+
+</tr>
+
+</thead>
+
+<tbody id="clubs">
+
+<tr><td>--</td><td>GetOut</td><td>--</td><td>--</td><td>--</td></tr>
+
+<tr><td>--</td><td>HOMELESS</td><td>--</td><td>--</td><td>--</td></tr>
+
+<tr><td>--</td><td>ITALY</td><td>--</td><td>--</td><td>--</td></tr>
+
+<tr><td>--</td><td>Regista</td><td>--</td><td>--</td><td>--</td></tr>
+
+<tr><td>--</td><td>GAP</td><td>--</td><td>--</td><td>--</td></tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<section id="matches">
+
+<h3>RECENT MATCHES</h3>
+
+<p class="notice">試合データ連携準備中...</p>
+
+</section>
+
+</main>
+
+<footer>
+
+© 2026 CLUBS JAPAN<br>
+
+Unofficial EA SPORTS FC Clubs Community
+
+</footer>
+
+<script>
+
+document.getElementById("search").addEventListener("input",function(){
+
+const word=this.value.toLowerCase();
+
+document.querySelectorAll("#clubs tr").forEach(row=>{
+
+row.style.display=row.textContent.toLowerCase().includes(word)?"":"none";
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
